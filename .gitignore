@@ -1,0 +1,6 @@
+host-profile.yaml
+client-updates/
+.playwright-mcp/
+.DS_Store
+*.png
+!docs/*.png

@@ -1,0 +1,10 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "userDataDir": "/Users/YOU/Library/Application Support/PlaywrightChromeProfiles/listing-agent",
+    "launchOptions": {
+      "channel": "chrome",
+      "args": ["--profile-directory=Default"]
+    }
+  }
+}

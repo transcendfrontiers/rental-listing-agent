@@ -1,0 +1,7 @@
+{
+  "name": "rental-listing-agent",
+  "version": "0.1.0",
+  "description": "Claude Code skills that turn a property intake form into published Vrbo, Zillow Rental Manager and TurboTenant listings, and keep listing photos in sync across platforms.",
+  "author": { "name": "transcendfrontiers" },
+  "license": "MIT"
+}

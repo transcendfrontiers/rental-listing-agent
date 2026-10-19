@@ -1,0 +1,12 @@
+{
+  "name": "rental-listing-agent",
+  "owner": { "name": "transcendfrontiers" },
+  "description": "Claude Code skills for multi-platform rental listing automation.",
+  "plugins": [
+    {
+      "name": "rental-listing-agent",
+      "source": "./",
+      "description": "Intake form to published Vrbo, Zillow and TurboTenant listings, plus cross-platform photo sync."
+    }
+  ]
+}

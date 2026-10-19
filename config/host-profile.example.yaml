@@ -1,0 +1,85 @@
+# Host profile: your house-wide defaults.
+#
+# Copy this to host-profile.yaml in the directory you run Claude Code from
+# (it's gitignored), then edit it. Every skill reads it at the start of a run.
+#
+#   - A value set here is applied to every property without asking.
+#   - A value left blank (or removed) is asked per property.
+#   - The intake form always overrides this file for that one property.
+
+business:
+  name: Example Stays
+  # "furnished-monthly" (corporate / mid-term housing) or "short-term" (vacation).
+  # Drives description tone on Zillow and TurboTenant.
+  positioning: furnished-monthly
+  target_renters: traveling nurses, military, contract workers, corporate travelers, relocations
+  # Where calendars and dynamic pricing live. The agent never turns on a platform's
+  # own rate automation or calendar sync when this is set; it reminds you to sync here.
+  channel_manager: Hospitable
+  # Only mentioned in copy if true.
+  military_discount: false
+
+listing_contact:
+  name: Alex Host
+  email: host@example.com
+  role: Property owner
+
+# House style. The agent writes titles that look like these.
+title_examples:
+  - "Quiet 2BR Near the Convention Center"
+  - "Palm & Patio | Eastside"
+  - "Downtown Loft - 10 mins to the Stadium"
+monthly_title_pattern: "Furnished, Flexible Monthly Rental in {city}"
+
+defaults:
+  minimum_age: 25
+  cleaning_fee: 150
+  smoking_allowed: false
+  events_allowed: false
+  children_allowed: true
+  pets:
+    allowed: true
+    types: [cats, small dogs, large dogs]
+    max_weight_lbs: 50
+    per_stay_fee: 100          # Vrbo-style short-term pet fee
+    deposit: 200               # Zillow / TurboTenant, one-time
+    deposit_refundable: false
+    pet_rent: 0
+  utilities_included: true     # all utilities paid by landlord
+  renters_insurance_required: true
+  date_available: today        # "today" or "from-form"
+  lease_term: monthly
+  contactless_checkin: true    # smart lock / self check-in
+
+vrbo:
+  booking_window_months: 6
+  booking_type: 24-hour review  # switch away from Instant Booking after publish
+  cancellation_policy: Firm
+  host_type: Professional host
+  property_type: Residence
+  bank_country: United States
+  keep_new_listing_promo: true
+
+zillow:
+  tour_booking: review-and-confirm   # or "instant", or "none"
+  decline_premium: true
+
+turbotenant:
+  property_type: Condo               # single units go here, not "Apartment" (5+ units)
+  showing_scheduling: skip
+
+browser:
+  # Path to the Playwright MCP config this agent drives (see config/playwright-mcp.example.json).
+  playwright_config: ~/.claude/playwright-mcp-config.json
+
+# Folder the update-summary skill writes client messages to.
+client_updates_dir: ./client-updates
+
+# Never defaulted, whatever is above. The agent stops and asks if the form is silent.
+always_ask:
+  - address (incl. unit)
+  - bedrooms / bathrooms / square footage
+  - nightly rate or monthly rent
+  - security deposit
+  - parking details
+  - occupancy limit
